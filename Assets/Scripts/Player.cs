@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using ECM.Controllers;
 public class Player : MonoBehaviour
 {
     public Rigidbody bullet;
     public float speed;
     public Vector3 offset;
     public float range;
+    public Animator anim;
+    BaseCharacterController controller;
 
     public Vector3 Offset
     {
@@ -20,12 +22,15 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        controller = GetComponent<BaseCharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        anim.SetFloat("speed", controller.movement.velocity.magnitude);
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Shoot(Vector3.forward);
@@ -48,6 +53,7 @@ public class Player : MonoBehaviour
 
     public void Shoot(Vector3 direction)
     {
+        anim.Play("Attack");
         Rigidbody b = Instantiate(bullet, Offset, Quaternion.identity);
         b.velocity = direction * speed;
         Destroy(b.gameObject, range);
