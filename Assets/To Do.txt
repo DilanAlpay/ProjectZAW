@@ -1,0 +1,4 @@
+Add in fire rate
+enemies move towards the player
+level geometry
+player death animation
