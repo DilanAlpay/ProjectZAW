@@ -59,4 +59,9 @@ public class Player : MonoBehaviour
         Destroy(b.gameObject, range);
     }
 
+    public void Hurt()
+    {
+        anim.Play("Hurt");
+        controller.movement.ApplyImpulse(-transform.forward * 1000);
+    }
 }

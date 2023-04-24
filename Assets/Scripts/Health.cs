@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     private int hp;
     public int maxHp = 1;
     public float iFrames = 0;
+    private float iTimer;
     public UnityEvent onHit;
     public UnityEvent onDeath;
 
@@ -16,13 +17,21 @@ public class Health : MonoBehaviour
         hp = maxHp;
     }
 
+
     public void Hurt(Damage damage)
     {
+        if (Time.time < iTimer) return;
+
         hp -= damage.amount;
 
         if (hp <= 0)
         {
             Die();
+        }
+        else
+        {
+            onHit.Invoke();
+            iTimer = Time.time + iFrames;
         }
     }
 
