@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
-    private int hp;
+    protected int hp;
     public int maxHp = 1;
     public float iFrames = 0;
     private float iTimer;
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     }
 
 
-    public void Hurt(Damage damage)
+    public virtual void Hurt(Damage damage)
     {
         if (Time.time < iTimer) return;
 

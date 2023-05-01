@@ -5,14 +5,13 @@ using UnityEngine.AI;
 public class Chaser : MonoBehaviour
 {
     public float radius = 12.5f;
-    private LayerMask targets;
+    public LayerMask targets;
     private NavMeshAgent agent;
-    private Transform target;
+    private Transform target =null;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        targets = LayerMask.NameToLayer("Player");
         agent.isStopped = true;
     }
 

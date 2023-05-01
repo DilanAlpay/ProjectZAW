@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 12.5
+  targets:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!195 &9162187959160465468
 NavMeshAgent:
   m_ObjectHideFlags: 0
