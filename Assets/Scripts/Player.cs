@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Vector3 offset;
     public float range;
-    public Animator anim;
+    private Animator anim;
     BaseCharacterController controller;
 
     public Vector3 Offset
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<BaseCharacterController>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -31,31 +32,18 @@ public class Player : MonoBehaviour
 
         anim.SetFloat("speed", controller.movement.velocity.magnitude);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Shoot(Vector3.forward);
+            Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Shoot(Vector3.back);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Shoot(Vector3.left);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Shoot(Vector3.right);
-        }
-
-
     }
 
-    public void Shoot(Vector3 direction)
+    public void Shoot()
     {
         anim.Play("Attack");
-        Rigidbody b = Instantiate(bullet, Offset, Quaternion.identity);
-        b.velocity = direction * speed;
+        Rigidbody b = Instantiate(bullet, Offset, transform.rotation);
+        b.velocity = transform.forward * speed;
+        
         Destroy(b.gameObject, range);
     }
 

@@ -153,7 +153,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cat
+  m_Name: Player
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: speed
@@ -208,7 +208,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 17eefb263b4ee0a4ebe0679c6e90262a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 82d1194f41432244ca9ee103a238d153, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -258,14 +258,14 @@ AnimatorStateMachine:
     m_Position: {x: 439.37848, y: -46.825027, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4688354900955689364}
-    m_Position: {x: 470, y: 70, z: 0}
+    m_Position: {x: 430, y: 70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_EntryPosition: {x: 220, y: -60, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8504700634157971844}
