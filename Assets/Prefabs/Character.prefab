@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4734392027917580354}
   - component: {fileID: 4741689437460149258}
   - component: {fileID: 4738505181970377566}
-  - component: {fileID: 4738679036040443260}
   - component: {fileID: 4635792774042684040}
   - component: {fileID: 1675834533}
+  - component: {fileID: 2927529700796251422}
   m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eae04a4fe514bf4789aec1bdb93100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLateralSpeed: 10
+  _maxLateralSpeed: 20
   _maxRiseSpeed: 20
   _maxFallSpeed: 20
   _useGravity: 1
@@ -110,38 +110,6 @@ MonoBehaviour:
   _slideGravityMultiplier: 2
   _snapToGround: 1
   _snapStrength: 0.5
---- !u!114 &4738679036040443260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635300189503351642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ca60fcb1c82ff4e90a3d2ba9e485e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _angularSpeed: 1080
-  _acceleration: 50
-  _deceleration: 20
-  _groundFriction: 8
-  _useBrakingFriction: 0
-  _brakingFriction: 8
-  _airFriction: 0
-  _airControl: 0.2
-  _canCrouch: 1
-  _standingHeight: 2
-  _crouchingHeight: 1
-  _baseJumpHeight: 0
-  _extraJumpTime: 0.5
-  _extraJumpPower: 25
-  _jumpPreGroundedToleranceTime: 0.15
-  _jumpPostGroundedToleranceTime: 0.15
-  _maxMidAirJumps: 0
-  _useRootMotion: 0
-  _rootMotionRotation: 0
 --- !u!114 &4635792774042684040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,10 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2bd1cd110387ef4ba8e23d74a607286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5643976881127762176, guid: ba88a2b1a7a071a49a83bdc1d5138b98, type: 3}
-  speed: 1
-  offset: {x: 0, y: 1, z: 1}
-  range: 0.2
+  weapon: {fileID: 11400000, guid: 86c3f9ff9a7fa3e42a2e31097567a34d, type: 2}
+  offset: {x: 0, y: 2, z: 1}
 --- !u!114 &1675834533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +157,38 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   display: {fileID: 0}
+--- !u!114 &2927529700796251422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635300189503351642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf3ece91083ec0439fe357e2e0386e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 10
+  _angularSpeed: 1080
+  _acceleration: 50
+  _deceleration: 20
+  _groundFriction: 8
+  _useBrakingFriction: 0
+  _brakingFriction: 8
+  _airFriction: 0
+  _airControl: 0.2
+  _canCrouch: 0
+  _standingHeight: 2
+  _crouchingHeight: 1
+  _baseJumpHeight: 0
+  _extraJumpTime: 0.5
+  _extraJumpPower: 25
+  _jumpPreGroundedToleranceTime: 0.15
+  _jumpPostGroundedToleranceTime: 0.15
+  _maxMidAirJumps: 1
+  _useRootMotion: 0
+  _rootMotionRotation: 0
 --- !u!1001 &4563885957024812776
 PrefabInstance:
   m_ObjectHideFlags: 0
