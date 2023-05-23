@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
             return transform.position + transform.up * offset.y;
         }
     }
-       
+    public float radius = 12;
+    public LayerMask targets;
 
     void Start()
     {
@@ -47,8 +48,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         anim.SetFloat("speed", controller.movement.velocity.magnitude);
-
+        Alert();
         HandleShoot();
+    }
+
+    public void Alert()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius, targets);
+        foreach (Collider hit in hits)
+        {
+            hit.GetComponent<Enemy>()?.Alert(this);
+        }
     }
 
     public void HandleShoot()
@@ -61,11 +71,7 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         anim.Play("Attack");
-        Bullet b = Instantiate(weapon.bullet, Offset, Quaternion.LookRotation(shootDir));
-        b.velocity =  shootDir.normalized * weapon.speed;
-        
-        Destroy(b.gameObject, weapon.range);
-
+        weapon.Shoot(Offset,shootDir);
         delayed = Time.time + weapon.rate;
     }
 
@@ -73,5 +79,10 @@ public class Player : MonoBehaviour
     {
         anim.Play("Hurt");
         controller.movement.ApplyImpulse(-transform.forward * 1000);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

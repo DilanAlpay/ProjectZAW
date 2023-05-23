@@ -9,4 +9,12 @@ public class Weapon : ScriptableObject
     public float speed;
     public float range;
     public float rate;
+
+    public void Shoot(Vector3 pos, Vector3 shootDir)
+    {
+        Bullet b = Instantiate(bullet, pos, Quaternion.LookRotation(shootDir));
+        b.velocity = shootDir.normalized * speed;
+
+        Destroy(b.gameObject, range);
+    }
 }

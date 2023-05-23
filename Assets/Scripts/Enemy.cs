@@ -7,23 +7,35 @@ using UnityEngine.Events;
 /// </summary>
 public class Enemy : MonoBehaviour
 {
-    Animator anim;
-    private bool alerted = false;
     public UnityEvent onAlert;
+    private Animator anim;
+    public Animator Anim { get { return anim; } }
+    private bool alerted = false;
     private List<EnemyBehaviour> behaviours;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        behaviours = new List<EnemyBehaviour>();
+        foreach (EnemyBehaviour b in GetComponentsInChildren<EnemyBehaviour>())
+        {
+            behaviours.Add(b);
+            b.Init(this);
+        }
     }
 
-    public void Alert()
+    public void Alert(Player p)
     {
         if (alerted) return;
 
+        alerted = true;
+        anim.SetBool("alerted", true);
+        
+        foreach (EnemyBehaviour b in behaviours)
+        {
+            b.Activate(p);
+        }
     }
-
-
 
     public void Die()
     {

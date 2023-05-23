@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1628cb4e65bfdc94bb19751630215ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onAlert:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8946364386894860557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0498051c3dd52924f9a27336ff9413e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 12.5
-  targets:
-    serializedVersion: 2
-    m_Bits: 8
+  startActive: 0
+  sightActivated: 1
 --- !u!195 &9162187959160465468
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -294,6 +295,36 @@ PrefabInstance:
     - target: {fileID: 2514291717366475304, guid: f12afff6738b9434b9803015cd04e3c6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373485958280621683, guid: f12afff6738b9434b9803015cd04e3c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3862073919625343602, guid: f12afff6738b9434b9803015cd04e3c6,
