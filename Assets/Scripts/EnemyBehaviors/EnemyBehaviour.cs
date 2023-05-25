@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     protected Enemy enemy;
-    protected Player target;
+    protected GameObject target;
     public bool startActive = false;
     public bool sightActivated = true;
 
@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
         enabled = startActive;
     }
 
-    public virtual void Activate(Player p)
+    public virtual void Activate(GameObject p)
     {
         enabled = sightActivated;
         target = p;

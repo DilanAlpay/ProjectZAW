@@ -5,31 +5,31 @@ using UnityEngine;
 public class Shooter : EnemyBehaviour
 {
     public Weapon weapon;
+    public float startDelay;
     public Vector3 offset;
     public Vector3 Offset
     {
         get
         {
-            return transform.position + transform.up * offset.y;
+            return transform.position + (transform.up * offset.y) + (transform.forward * offset.z);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Activate(GameObject p)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Activate(p);
+        Invoke("Shoot", startDelay);
     }
 
     public void Shoot()
     {
-        enemy.Anim.Play("Attack");
+        enemy.Anim.Play("Shoot");
         weapon.Shoot(Offset, transform.forward);
         Invoke("Shoot", weapon.rate);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(Offset, 0.25f);
     }
 }

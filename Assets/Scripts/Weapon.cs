@@ -14,7 +14,6 @@ public class Weapon : ScriptableObject
     {
         Bullet b = Instantiate(bullet, pos, Quaternion.LookRotation(shootDir));
         b.velocity = shootDir.normalized * speed;
-
         Destroy(b.gameObject, range);
     }
 }

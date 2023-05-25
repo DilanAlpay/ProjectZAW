@@ -6,7 +6,7 @@ public class Chaser : EnemyBehaviour
 {
     private NavMeshAgent agent;
 
-    public override void Activate(Player p)
+    public override void Activate(GameObject p)
     {
         base.Activate(p);
         agent = GetComponent<NavMeshAgent>();

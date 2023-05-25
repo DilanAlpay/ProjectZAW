@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Alert(Player p)
+    public void Alert(GameObject p)
     {
         if (alerted) return;
 

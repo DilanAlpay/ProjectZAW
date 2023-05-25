@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Watcher : EnemyBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public float turn;
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        Quaternion rot = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rot, turn * Time.deltaTime);
     }
 }

@@ -5,7 +5,8 @@ using ECM.Controllers;
 using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
-    public Weapon weapon;
+    public Character character;
+    private Weapon weapon;
     public Vector3 offset;
     private Animator anim;
     PlayerMovement controller;
@@ -25,7 +26,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<PlayerMovement>();
-        anim = GetComponentInChildren<Animator>();
+
+        GameObject model = Instantiate(character.model, transform);
+        model.transform.localPosition = Vector3.zero;
+        model.transform.rotation = Quaternion.identity;        
+        anim = model.GetComponent<Animator>();
+        weapon = character.weapon;
 
         input = new GameControls();
         input.Player.Enable();
@@ -57,7 +63,7 @@ public class Player : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, radius, targets);
         foreach (Collider hit in hits)
         {
-            hit.GetComponent<Enemy>()?.Alert(this);
+            hit.GetComponent<Enemy>()?.Alert(gameObject);
         }
     }
 
