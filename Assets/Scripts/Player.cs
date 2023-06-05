@@ -87,8 +87,18 @@ public class Player : MonoBehaviour
         controller.movement.ApplyImpulse(-transform.forward * 1000);
     }
 
+    public void Died()
+    {
+        enabled = false;
+        controller.movement.Pause(true);
+        input.Player.Disable();
+
+        anim.SetTrigger("dead");
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
 }

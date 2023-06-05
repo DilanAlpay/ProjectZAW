@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
 
     public virtual void Hurt(Damage damage)
     {
-        if (Time.time < iTimer) return;
+        if (Time.time < iTimer || hp <= 0) return;
 
         hp -= damage.amount;
 
