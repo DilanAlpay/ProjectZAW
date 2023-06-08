@@ -103,6 +103,17 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""f6d19188-7d95-4336-82ef-ac3ba20f65d9"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""arrows"",
                     ""id"": ""9c1b8880-8d58-45d2-82f5-f5d513f87e75"",
                     ""path"": ""2DVector"",
@@ -156,6 +167,175 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""buttons"",
+                    ""id"": ""c54b5119-f4da-435e-b291-acaeba05f714"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f02aff97-6671-4e22-be4f-ffb6ed8d3716"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""13aab2df-cd1e-4b9b-91dd-045668fff9b6"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6abe0936-acbf-4c6d-8a46-43b39f007b7f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6b1649f2-4fb6-4a4e-b5b1-b6667af2d478"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""MainMenu"",
+            ""id"": ""d587d96b-8a8b-472f-a9fb-49639fc1ea30"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5487f19f-f74d-4c7f-b80d-e96ab751111a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Enter"",
+                    ""type"": ""Button"",
+                    ""id"": ""45c621f5-5467-46bb-a7c0-d00e23dfa074"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""d9c23e60-7f8e-44ed-b076-2cbb0ad999b0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""11ac390d-2394-4d12-b666-9becba71ffba"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1562fcb9-a0d7-4ba8-9ed5-c80f53911956"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7719b815-7b7d-4796-a5f3-4b910b0c394f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9d6fbe5d-016c-4ef8-b304-73c750a5a0ed"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9d03c57-6d7e-41b8-a9e9-347896e9011c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d6aa5e0-ffa6-4c05-aa1a-4e050d32056d"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d105db7-6c5b-480d-94ae-9f539ecd3b79"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +346,10 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        // MainMenu
+        m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
+        m_MainMenu_Move = m_MainMenu.FindAction("Move", throwIfNotFound: true);
+        m_MainMenu_Enter = m_MainMenu.FindAction("Enter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,9 +446,55 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // MainMenu
+    private readonly InputActionMap m_MainMenu;
+    private IMainMenuActions m_MainMenuActionsCallbackInterface;
+    private readonly InputAction m_MainMenu_Move;
+    private readonly InputAction m_MainMenu_Enter;
+    public struct MainMenuActions
+    {
+        private @GameControls m_Wrapper;
+        public MainMenuActions(@GameControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_MainMenu_Move;
+        public InputAction @Enter => m_Wrapper.m_MainMenu_Enter;
+        public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MainMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMainMenuActions instance)
+        {
+            if (m_Wrapper.m_MainMenuActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnMove;
+                @Enter.started -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnEnter;
+                @Enter.performed -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnEnter;
+                @Enter.canceled -= m_Wrapper.m_MainMenuActionsCallbackInterface.OnEnter;
+            }
+            m_Wrapper.m_MainMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Enter.started += instance.OnEnter;
+                @Enter.performed += instance.OnEnter;
+                @Enter.canceled += instance.OnEnter;
+            }
+        }
+    }
+    public MainMenuActions @MainMenu => new MainMenuActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+    }
+    public interface IMainMenuActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnEnter(InputAction.CallbackContext context);
     }
 }
