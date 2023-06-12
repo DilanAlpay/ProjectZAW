@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public int maxHp = 1;
     public float iFrames = 0;
     private float iTimer;
+    public float Percentage { get { return ((float)hp) / maxHp; } }
     public UnityEvent onHit;
     public UnityEvent onDeath;
 

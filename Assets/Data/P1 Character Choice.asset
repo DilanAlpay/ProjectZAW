@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f60601b3bbd71f498b492a02f0d3c44, type: 3}
   m_Name: P1 Character Choice
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: 9f9a5e6bc4c004440ba176efc2a17189, type: 2}

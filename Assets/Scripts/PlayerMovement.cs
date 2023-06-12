@@ -19,4 +19,5 @@ public class PlayerMovement : BaseCharacterController
     }
 
     protected override void HandleInput() {}
+    protected override void UpdateRotation(){}
 }

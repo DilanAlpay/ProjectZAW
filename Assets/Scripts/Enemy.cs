@@ -12,11 +12,16 @@ public class Enemy : MonoBehaviour
     public Animator Anim { get { return anim; } }
     private bool alerted = false;
     private List<EnemyBehaviour> behaviours;
+    private HealthBar bar;
+    private Health hp;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
         behaviours = new List<EnemyBehaviour>();
+        bar = GetComponentInChildren<HealthBar>();
+        hp = GetComponent<Health>();
+        hp.onHit.AddListener(Hurt);
         foreach (EnemyBehaviour b in GetComponentsInChildren<EnemyBehaviour>())
         {
             behaviours.Add(b);
@@ -36,6 +41,12 @@ public class Enemy : MonoBehaviour
             b.Activate(p);
         }
     }
+
+    public void Hurt()
+    {
+        bar.UpdateDisplay(hp.Percentage);
+    }
+
 
     public void Die()
     {

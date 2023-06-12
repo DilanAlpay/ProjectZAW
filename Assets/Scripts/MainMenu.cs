@@ -18,16 +18,16 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         controls = new GameControls();
+
         controls.MainMenu.Enable();
-        controls.MainMenu.Move.started += MoveMarker;
+        controls.MainMenu.Move.performed += MoveMarker;
         controls.MainMenu.Enter.started += Enter;
+
+        SetCharacter();
     }
 
     public void MoveMarker(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Hello?");
-        Debug.Log(ctx.ReadValue<Vector2>().x);
-
         current += Mathf.RoundToInt(ctx.ReadValue<Vector2>().x);
 
         if (current < 0) current = characters.Count - 1;

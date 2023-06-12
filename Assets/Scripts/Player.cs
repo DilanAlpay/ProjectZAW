@@ -5,7 +5,7 @@ using ECM.Controllers;
 using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
-    public Character character;
+    public CharacterChoice choice;
     private Weapon weapon;
     public Vector3 offset;
     private Animator anim;
@@ -27,11 +27,11 @@ public class Player : MonoBehaviour
     {
         controller = GetComponent<PlayerMovement>();
 
-        GameObject model = Instantiate(character.model, transform);
+        GameObject model = Instantiate(choice.character.model, transform);
         model.transform.localPosition = Vector3.zero;
         model.transform.rotation = Quaternion.identity;        
         anim = model.GetComponent<Animator>();
-        weapon = character.weapon;
+        weapon = choice.character.weapon;
 
         input = new GameControls();
         input.Player.Enable();
@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
+        anim.transform.rotation = Quaternion.LookRotation(shootDir);
         anim.Play("Attack");
         weapon.Shoot(Offset,shootDir);
         delayed = Time.time + weapon.rate;

@@ -9,7 +9,7 @@ public class PlayerUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        display.sprite = player.character.picture;
+        display.sprite = player.choice.character.picture;
     }
 
 }
