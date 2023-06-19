@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ECM.Controllers;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public CharacterChoice choice;
@@ -95,11 +96,17 @@ public class Player : MonoBehaviour
         input.Player.Disable();
 
         anim.SetTrigger("dead");
+        Invoke("Reload", 3);
     }
     
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
