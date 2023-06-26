@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     }
     public float radius = 12;
     public LayerMask targets;
+    private MyPower myPower;
+    public PlayerUI ui;
 
     void Start()
     {
@@ -107,6 +109,12 @@ public class Player : MonoBehaviour
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GivePower(Power p)
+    {
+        myPower = new MyPower(p);
+        ui.UpdatePower(myPower);
     }
 
 }
