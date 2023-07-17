@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    public int amount;
+    public int amount = 1;
 
     private void OnTriggerEnter(Collider other)
     {

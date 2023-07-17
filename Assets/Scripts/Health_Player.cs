@@ -12,6 +12,12 @@ public class Health_Player : Health
         UpdateDisplay();
     }
 
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+        UpdateDisplay();
+    }
+
     public void UpdateDisplay()
     {
         for (int i = 0; i < display.childCount; i++)

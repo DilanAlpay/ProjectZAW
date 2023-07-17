@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     private MyPower myPower;
     public PlayerUI ui;
 
+    public Character Character => choice.character;
+
     void Start()
     {
         controller = GetComponent<PlayerMovement>();
@@ -99,6 +101,15 @@ public class Player : MonoBehaviour
 
         anim.SetTrigger("dead");
         Invoke("Reload", 3);
+    }
+
+    /// <summary>
+    /// Called when we press the Power button
+    /// </summary>
+    public void OnPower(InputAction.CallbackContext ctx)
+    {
+        //If we do not have a power, we can't do this
+        if (myPower == null) return;
     }
     
     private void OnDrawGizmos()
