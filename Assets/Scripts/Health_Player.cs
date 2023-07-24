@@ -12,10 +12,11 @@ public class Health_Player : Health
         UpdateDisplay();
     }
 
-    public override void Heal(int amount)
+    public override bool Heal(int amount)
     {
-        base.Heal(amount);
+        bool healed = base.Heal(amount);
         UpdateDisplay();
+        return healed;
     }
 
     public void UpdateDisplay()

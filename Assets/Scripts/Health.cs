@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public bool Heal(int amount)
+    public virtual bool Heal(int amount)
     {
         if (hp == maxHp) return false;
         hp = Mathf.Clamp(hp + amount, 0, maxHp);
