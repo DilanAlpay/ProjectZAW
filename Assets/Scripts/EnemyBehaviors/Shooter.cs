@@ -28,6 +28,7 @@ public class Shooter : EnemyBehaviour
         Invoke("Shoot", weapon.rate);
     }
 
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawSphere(Offset, 0.25f);

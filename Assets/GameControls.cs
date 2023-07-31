@@ -46,7 +46,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Power"",
+                    ""name"": ""Item"",
                     ""type"": ""Button"",
                     ""id"": ""a7418539-0133-4690-84b2-d54b7de2a416"",
                     ""expectedControlType"": ""Button"",
@@ -235,11 +235,11 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3fb5fc41-e1b2-422a-b881-86943663d9de"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Power"",
+                    ""action"": ""Item"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -366,7 +366,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_Power = m_Player.FindAction("Power", throwIfNotFound: true);
+        m_Player_Item = m_Player.FindAction("Item", throwIfNotFound: true);
         // MainMenu
         m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
         m_MainMenu_Move = m_MainMenu.FindAction("Move", throwIfNotFound: true);
@@ -432,14 +432,14 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_Power;
+    private readonly InputAction m_Player_Item;
     public struct PlayerActions
     {
         private @GameControls m_Wrapper;
         public PlayerActions(@GameControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @Power => m_Wrapper.m_Player_Power;
+        public InputAction @Item => m_Wrapper.m_Player_Item;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,9 +455,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Power.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
-                @Power.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
-                @Power.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPower;
+                @Item.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem;
+                @Item.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem;
+                @Item.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -468,9 +468,9 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
-                @Power.started += instance.OnPower;
-                @Power.performed += instance.OnPower;
-                @Power.canceled += instance.OnPower;
+                @Item.started += instance.OnItem;
+                @Item.performed += instance.OnItem;
+                @Item.canceled += instance.OnItem;
             }
         }
     }
@@ -520,7 +520,7 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnPower(InputAction.CallbackContext context);
+        void OnItem(InputAction.CallbackContext context);
     }
     public interface IMainMenuActions
     {

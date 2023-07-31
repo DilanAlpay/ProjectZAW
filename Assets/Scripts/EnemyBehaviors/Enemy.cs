@@ -9,11 +9,13 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public UnityEvent onAlert;
-    private Animator anim;
-    private NavMeshAgent agent;
-    public Animator Anim { get { return anim; } }
     public GameEvent defeatedEvent;
+    public Knockback knockback;
 
+    public Animator Anim { get { return anim; } }
+
+    private NavMeshAgent agent;
+    private Animator anim;
     private bool alerted = false;
     private List<EnemyBehaviour> behaviours;
     private HealthBar bar;
@@ -61,19 +63,50 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Hurt()
+    public void Hurt(Damage d)
     {
         bar.UpdateDisplay(hp.Percentage);
+        Vector3 dir = (transform.position - d.source.position).normalized;
+        StartCoroutine(Knockback(dir));
     }
 
+    IEnumerator Knockback(Vector3 dir)
+    {
+        Quaternion rotation = transform.rotation;
+        //Stored our normal agent values so we don't lose them
+        float speed = agent.speed;
+        float aSpeed = agent.angularSpeed;
+        float acc = agent.acceleration;
 
-    public void Die()
+        //Set our agent's data for knockback
+        agent.speed = knockback.force;
+        agent.angularSpeed = 0;
+        agent.acceleration = 20;
+
+        float t = 0;
+        while (t < knockback.time)
+        {
+            agent.velocity = dir * knockback.force;
+
+            //Debug.DrawRay(transform.position, goal, Color.cyan);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        agent.velocity = Vector3.zero;
+        //Return the agent's data back to normal
+        agent.speed = speed;
+        agent.angularSpeed = aSpeed;
+        agent.acceleration = acc;
+
+        transform.rotation = rotation;
+    }
+
+    public void Die(Damage damage)
     {
         anim.Play("Dead");
-        defeatedEvent.Call(this);
+        defeatedEvent?.Call(this);
         Destroy(GetComponent<Dangerous>());
-        Destroy(gameObject, 0.5f);
+        Destroy(bar.gameObject);
+        Destroy(gameObject, 1f);
     }
-
-
 }

@@ -9,8 +9,9 @@ public class Health : MonoBehaviour
     public float iFrames = 0;
     private float iTimer;
     public float Percentage { get { return ((float)hp) / maxHp; } }
-    public UnityEvent onHit;
-    public UnityEvent onDeath;
+    
+    public UnityEvent<Damage> onHit;
+    public UnityEvent<Damage> onDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,11 @@ public class Health : MonoBehaviour
 
         if (hp <= 0)
         {
-            Die();
+            Die(damage);
         }
         else
         {
-            onHit.Invoke();
+            onHit.Invoke(damage);
             iTimer = Time.time + iFrames;
         }
     }
@@ -43,15 +44,8 @@ public class Health : MonoBehaviour
         return true;
     }
 
-    public void Die()
+    public void Die(Damage damage)
     {
-        if(onDeath.GetPersistentEventCount() == 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            onDeath.Invoke();
-        }
+        onDeath.Invoke(damage);
     }
 }

@@ -6,7 +6,7 @@ public class PlayerUI : MonoBehaviour
 {
     public Player player;
     public Image picture;
-    public Image power;
+    public Image item;
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +14,13 @@ public class PlayerUI : MonoBehaviour
         picture.sprite = player.choice.character.picture;
     }
 
+    public void UpdateItem(Item i)
+    {
+        item.sprite = i.icon;
+    }
+
     public void UpdatePower(MyPower p)
     {
-        power.sprite = p?.power.icon;
+        item.sprite = p?.power.icon;
     }
 }

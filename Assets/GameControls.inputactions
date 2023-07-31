@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Power",
+                    "name": "Item",
                     "type": "Button",
                     "id": "a7418539-0133-4690-84b2-d54b7de2a416",
                     "expectedControlType": "Button",
@@ -213,11 +213,11 @@
                 {
                     "name": "",
                     "id": "3fb5fc41-e1b2-422a-b881-86943663d9de",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Power",
+                    "action": "Item",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

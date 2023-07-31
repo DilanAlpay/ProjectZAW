@@ -6,14 +6,21 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
+    #region Public Properties
     public CharacterChoice choice;
-    private Weapon weapon;
     public Vector3 offset;
+    public float radius = 12;
+    public LayerMask targets;
+    #endregion
+
+    #region Components
+    private Weapon weapon;
+    private PlayerMovement controller;
     private Animator anim;
-    PlayerMovement controller;
-    GameControls input;
-    Vector3 shootDir = Vector3.zero;
-    float delayed = -1;
+    public PlayerUI ui;
+    #endregion
+
+    #region Accessors
     public Vector3 Offset
     {
         get
@@ -21,12 +28,14 @@ public class Player : MonoBehaviour
             return transform.position + transform.up * offset.y;
         }
     }
-    public float radius = 12;
-    public LayerMask targets;
-    private MyPower myPower;
-    public PlayerUI ui;
-
     public Character Character => choice.character;
+    #endregion
+
+    private GameControls input;
+    private Vector3 shootDir = Vector3.zero;
+    private float delayed = -1;
+    private Item myItem;
+    private MyPower myPower;
 
     void Start()
     {
@@ -38,6 +47,12 @@ public class Player : MonoBehaviour
         anim = model.GetComponent<Animator>();
         weapon = choice.character.weapon;
 
+        SetInput();
+    }
+
+    #region Input Handling
+    public void SetInput()
+    {
         input = new GameControls();
         input.Player.Enable();
 
@@ -46,6 +61,8 @@ public class Player : MonoBehaviour
         input.Player.Shoot.started += OnShoot;
         input.Player.Shoot.performed += OnShoot;
         input.Player.Shoot.canceled += OnShoot;
+
+        input.Player.Item.started += OnUseItem;
     }
 
     public void OnShoot(InputAction.CallbackContext ctx)
@@ -55,14 +72,41 @@ public class Player : MonoBehaviour
         shootDir = new Vector3(d.x, 0, d.y); 
     }
 
+    public void OnUseItem(InputAction.CallbackContext ctx)
+    {
+        if (!myItem) return;
+        myItem.Use(this);
+        myItem = null;
+    }
+    #endregion
+
+    #region Modifiers
+    public void GiveItem(Item i)
+    {
+        myItem = i;
+    }
+
+    public void GivePower(Power p)
+    {
+        myPower = new MyPower(p);
+        ui.UpdatePower(myPower);
+    }
+    #endregion
+
+    #region Updating
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("speed", controller.movement.velocity.magnitude);
+        Animate();
         Alert();
         HandleShoot();
     }
 
+    private void Animate()
+    {
+        anim.SetFloat("speed", controller.movement.velocity.magnitude);
+    }
+    
     public void Alert()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, radius, targets);
@@ -76,17 +120,10 @@ public class Player : MonoBehaviour
     {
         if (Time.time < delayed || shootDir.magnitude == 0) return;
         Shoot();
-
     }
+    #endregion
 
-    public void Shoot()
-    {
-        anim.transform.rotation = Quaternion.LookRotation(shootDir);
-        anim.Play("Attack");
-        weapon.Shoot(Offset,shootDir);
-        delayed = Time.time + weapon.rate;
-    }
-
+    #region Health
     public void Hurt()
     {
         anim.Play("Hurt");
@@ -102,30 +139,29 @@ public class Player : MonoBehaviour
         anim.SetTrigger("dead");
         Invoke("Reload", 3);
     }
+    #endregion
 
     /// <summary>
-    /// Called when we press the Power button
+    /// Handles the actual shooting using the updating input
     /// </summary>
-    public void OnPower(InputAction.CallbackContext ctx)
+    public void Shoot()
     {
-        //If we do not have a power, we can't do this
-        if (myPower == null) return;
+        anim.transform.rotation = Quaternion.LookRotation(shootDir);
+        anim.Play("Attack");
+        weapon.Shoot(Offset,shootDir);
+        delayed = Time.time + weapon.rate;
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
-
+    /// <summary>
+    /// Reloads the game when the player dies
+    /// </summary>
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void GivePower(Power p)
+    private void OnDrawGizmos()
     {
-        myPower = new MyPower(p);
-        ui.UpdatePower(myPower);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
-
 }

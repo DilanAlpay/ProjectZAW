@@ -23,4 +23,9 @@ public class EnemyBehaviour : MonoBehaviour
         enabled = sightActivated;
         target = p;
     }
+
+    public virtual void Deactivate()
+    {
+        enabled = false;
+    }
 }

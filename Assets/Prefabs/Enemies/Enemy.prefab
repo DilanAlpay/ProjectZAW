@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7441499166677408212}
+  - component: {fileID: 1381941717430138933}
   - component: {fileID: 7441499166677408213}
   - component: {fileID: -5769632956003448730}
   - component: {fileID: -8322177514249778489}
   - component: {fileID: 1748876925474297633}
-  - component: {fileID: 1381941717430138933}
   - component: {fileID: 8946364386894860557}
   - component: {fileID: 9162187959160465468}
   m_Layer: 6
@@ -39,6 +39,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1381941717430138933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441499166677408214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1628cb4e65bfdc94bb19751630215ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAlert:
+    m_PersistentCalls:
+      m_Calls: []
+  defeatedEvent: {fileID: 0}
+  knockback:
+    force: 20
+    time: 0.25
 --- !u!114 &7441499166677408213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,21 +122,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1381941717430138933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441499166677408214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1628cb4e65bfdc94bb19751630215ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onAlert:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8946364386894860557
 MonoBehaviour:
   m_ObjectHideFlags: 0
