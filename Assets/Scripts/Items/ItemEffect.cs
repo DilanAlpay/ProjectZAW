@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemEffect : ScriptableObject
+public class ItemEffect : MonoBehaviour
 {
-    public Reaction<Player> onUse;
+    protected Player player;
 
-    public virtual void Use(Player player)
+    public virtual void Use(Player p)
     {
-        onUse.Invoke(player);
+        player = p;
     }
 }

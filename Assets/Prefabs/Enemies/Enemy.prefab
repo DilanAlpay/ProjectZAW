@@ -54,7 +54,7 @@ MonoBehaviour:
   onAlert:
     m_PersistentCalls:
       m_Calls: []
-  defeatedEvent: {fileID: 0}
+  defeatedEvent: {fileID: 11400000, guid: e723174dea20c53408b5831ae0827803, type: 2}
   knockback:
     force: 20
     time: 0.25

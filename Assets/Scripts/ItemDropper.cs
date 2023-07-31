@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemDropper : MonoBehaviour
 {
+    [Range(0,1)]
     public float heartChance = 0.25f;
     public GameObject heart;
 

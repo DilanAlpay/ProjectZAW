@@ -119,6 +119,10 @@ MonoBehaviour:
   onAlert:
     m_PersistentCalls:
       m_Calls: []
+  defeatedEvent: {fileID: 11400000, guid: e723174dea20c53408b5831ae0827803, type: 2}
+  knockback:
+    force: 0
+    time: 0
 --- !u!195 &4002373532097687119
 NavMeshAgent:
   m_ObjectHideFlags: 0

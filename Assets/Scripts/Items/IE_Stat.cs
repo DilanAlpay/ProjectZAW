@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IE_Stat : MonoBehaviour
+public class IE_Stat : ItemEffect
 {
-    // Start is called before the first frame update
-    void Start()
+    public Stats stats;
+
+    public void Add()
     {
-        
+        player.Stats.Add(stats);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Subtract()
     {
-        
+        player.Stats.Subtract(stats);
     }
 }

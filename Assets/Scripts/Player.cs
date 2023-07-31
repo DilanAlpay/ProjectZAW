@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
         }
     }
     public Character Character => choice.character;
+    private Stats stats;
+    public Stats Stats => stats;
     #endregion
 
     private GameControls input;

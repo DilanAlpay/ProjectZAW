@@ -59,6 +59,22 @@ public class Stats : MonoBehaviour
                 return 0;
         }
     }
+
+    public void Add(Stats s)
+    {
+        damage += s.damage;
+        speed += s.speed;
+        force += s.force;
+        rate += s.rate;
+    }
+
+    public void Subtract(Stats s)
+    {
+        damage -= s.damage;
+        speed -= s.speed;
+        force -= s.force;
+        rate -= s.rate;
+    }
 }
 
 public enum Stat
