@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemEffect : MonoBehaviour
+[System.Serializable]
+public class ItemEffect 
 {
     protected Player player;
+    protected Item item;
 
-    public virtual void Use(Player p)
+    public virtual void Use(Item i, Player p)
     {
+        item = i;
         player = p;
     }
 }

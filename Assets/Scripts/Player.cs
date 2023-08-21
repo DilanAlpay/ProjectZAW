@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
         model.transform.rotation = Quaternion.identity;        
         anim = model.GetComponent<Animator>();
         weapon = choice.character.weapon;
-
+        stats = Character.stats;
+        stats.Add(weapon.stats);
         SetInput();
     }
 
@@ -151,7 +152,7 @@ public class Player : MonoBehaviour
         anim.transform.rotation = Quaternion.LookRotation(shootDir);
         anim.Play("Attack");
         weapon.Shoot(Offset,shootDir);
-        delayed = Time.time + weapon.rate;
+        delayed = Time.time + stats.rate;
     }
     
     /// <summary>

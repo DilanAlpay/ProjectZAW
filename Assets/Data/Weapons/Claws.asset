@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Claws
   m_EditorClassIdentifier: 
   bullet: {fileID: 7712881577911518719, guid: ba88a2b1a7a071a49a83bdc1d5138b98, type: 3}
-  speed: 0
-  range: 0.1
-  rate: 0.5
+  stats:
+    damage: 3
+    speed: 0
+    force: 0
+    rate: 0
+    bulletSpeed: 0
+    range: 0.5

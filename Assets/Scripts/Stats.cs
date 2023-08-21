@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour
+[System.Serializable]
+public class Stats
 {
     /// <summary>
     /// How much damage you deal
@@ -24,6 +25,16 @@ public class Stats : MonoBehaviour
     /// </summary>
     public float rate;
 
+    /// <summary>
+    /// How fast the bullet moves
+    /// </summary>
+    public float bulletSpeed;
+
+    /// <summary>
+    /// How long the bullet is on the screen for
+    /// </summary>
+    public float range;
+
     public void ChangeStat(Stat stat, float amount)
     {
         switch (stat)
@@ -40,6 +51,12 @@ public class Stats : MonoBehaviour
             case Stat.RATE:
                 rate += amount;
                 break;
+            case Stat.BULLETSPEED:
+                bulletSpeed += amount;
+                break;
+            case Stat.RANGE:
+                range += amount;
+                break;
         }
     }
 
@@ -55,6 +72,10 @@ public class Stats : MonoBehaviour
                 return force;
             case Stat.RATE:
                 return rate;
+            case Stat.BULLETSPEED:
+                return bulletSpeed;
+            case Stat.RANGE:
+                return range;
             default:
                 return 0;
         }
@@ -66,6 +87,8 @@ public class Stats : MonoBehaviour
         speed += s.speed;
         force += s.force;
         rate += s.rate;
+        bulletSpeed -= s.bulletSpeed;
+        range += s.range;
     }
 
     public void Subtract(Stats s)
@@ -74,6 +97,8 @@ public class Stats : MonoBehaviour
         speed -= s.speed;
         force -= s.force;
         rate -= s.rate;
+        bulletSpeed -= s.bulletSpeed;
+        range -= s.range;
     }
 }
 
@@ -82,5 +107,7 @@ public enum Stat
     DAMAGE,
     SPEED,
     FORCE,
-    RATE
+    RATE,
+    BULLETSPEED,
+    RANGE,
 }

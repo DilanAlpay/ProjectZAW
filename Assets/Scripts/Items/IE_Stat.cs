@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+[System.Serializable]
 public class IE_Stat : ItemEffect
 {
     public Stats stats;
 
-    public void Add()
+    public override void Use(Item i, Player p)
     {
-        player.Stats.Add(stats);
-    }
+        base.Use(i, p);
 
-    public void Subtract()
-    {
-        player.Stats.Subtract(stats);
+        StatBoost boost = player.gameObject.AddComponent<StatBoost>();
+        boost.Init(player, this, item.duration);    
     }
 }

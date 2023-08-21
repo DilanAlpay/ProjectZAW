@@ -15,3 +15,10 @@ MonoBehaviour:
   model: {fileID: 6959926737523703365, guid: 48926a018e44189438095d2605619b9c, type: 3}
   weapon: {fileID: 11400000, guid: 86c3f9ff9a7fa3e42a2e31097567a34d, type: 2}
   picture: {fileID: 21300000, guid: 15f425a52d48c8e4dbac64a809ff6905, type: 3}
+  stats:
+    damage: 0
+    speed: 10
+    force: 0
+    rate: 0
+    bulletSpeed: 0
+    range: 0

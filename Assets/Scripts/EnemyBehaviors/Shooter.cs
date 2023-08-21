@@ -25,7 +25,7 @@ public class Shooter : EnemyBehaviour
     {
         enemy.Anim.Play("Shoot");
         weapon.Shoot(Offset, transform.forward);
-        Invoke("Shoot", weapon.rate);
+        Invoke("Shoot", weapon.stats.rate);
     }
 
 
