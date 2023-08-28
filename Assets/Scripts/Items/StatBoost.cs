@@ -12,12 +12,14 @@ public class StatBoost : MonoBehaviour
         player = p;
         effect = e;
         player.Stats.Add(effect.stats);
+        Debug.Log(player.Stats.speed + " is our new speed");
         Invoke("Revert", dur);
     }
 
     public void Revert()
     {
         player.Stats.Subtract(effect.stats);
+        Destroy(this);
     }
 
 }

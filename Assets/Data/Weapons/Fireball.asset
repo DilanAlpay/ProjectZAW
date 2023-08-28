@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   bullet: {fileID: 7444662269515167235, guid: 8db8ec0604935a74b8a8f87fbc254b85, type: 3}
-  speed: 3
-  range: 7
-  rate: 2
+  stats:
+    damage: 1
+    speed: 0
+    force: 0
+    rate: 2
+    bulletSpeed: 3
+    range: 7

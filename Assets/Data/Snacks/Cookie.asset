@@ -29,7 +29,7 @@ MonoBehaviour:
       data:
         stats:
           damage: 0
-          speed: 5
+          speed: 20
           force: 0
           rate: 0
           bulletSpeed: 0

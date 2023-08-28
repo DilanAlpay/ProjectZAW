@@ -16,7 +16,7 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateItem(Item i)
     {
-        item.sprite = i.icon;
+        item.sprite = i ? i.icon : null;
     }
 
     public void UpdatePower(MyPower p)

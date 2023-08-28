@@ -8,7 +8,12 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        onPickUp.Invoke(other.GetComponent<Player>());
+        Collect(other.GetComponent<Player>());
         Destroy(gameObject);
+    }
+
+    public virtual void Collect(Player player)
+    {
+        onPickUp.Invoke(player);
     }
 }

@@ -1161,8 +1161,14 @@ PrefabInstance:
     - target: {fileID: 8444010671173049779, guid: 95c1a53b0ec7e144b9e24eafde6afaff,
         type: 3}
       propertyPath: m_Name
-      value: Cookie
+      value: Cookie Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8570951301805565226, guid: 95c1a53b0ec7e144b9e24eafde6afaff,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 8beb7647278c9b748a7c34edb93eafba,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95c1a53b0ec7e144b9e24eafde6afaff, type: 3}
 --- !u!4 &4700067117231762667 stripped

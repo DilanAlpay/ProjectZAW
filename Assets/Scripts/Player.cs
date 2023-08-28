@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
         if (!myItem) return;
         myItem.Use(this);
         myItem = null;
+        ui.UpdateItem(null);
     }
     #endregion
 
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
     public void GiveItem(Item i)
     {
         myItem = i;
+        ui.UpdateItem(i);
     }
 
     public void GivePower(Power p)
@@ -151,7 +153,7 @@ public class Player : MonoBehaviour
     {
         anim.transform.rotation = Quaternion.LookRotation(shootDir);
         anim.Play("Attack");
-        weapon.Shoot(Offset,shootDir);
+        weapon.Shoot(Offset,shootDir,stats);
         delayed = Time.time + stats.rate;
     }
     

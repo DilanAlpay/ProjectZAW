@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 349938772991636179, guid: 3f8ec86b989b1d046bc467f3f7202fe5,
         type: 3}
       propertyPath: m_Name
-      value: Power
+      value: Power Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8188217709692657403, guid: 3f8ec86b989b1d046bc467f3f7202fe5,
         type: 3}
@@ -67,5 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7248150131032700815, guid: 3f8ec86b989b1d046bc467f3f7202fe5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f8ec86b989b1d046bc467f3f7202fe5, type: 3}

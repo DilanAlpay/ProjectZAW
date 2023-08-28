@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Unicorn Horn
   m_EditorClassIdentifier: 
   bullet: {fileID: 5352252865493879549, guid: ac5beb013c7664a4fbaa420ff177eabf, type: 3}
-  speed: 15
-  range: 1
-  rate: 0.5
+  stats:
+    damage: 3
+    speed: 0
+    force: 0
+    rate: 0.5
+    bulletSpeed: 15
+    range: 1

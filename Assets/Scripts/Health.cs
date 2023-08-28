@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
-    protected int hp;
-    public int maxHp = 1;
+    protected float hp;
+    public float maxHp = 1;
     public float iFrames = 0;
     private float iTimer;
     public float Percentage { get { return ((float)hp) / maxHp; } }
